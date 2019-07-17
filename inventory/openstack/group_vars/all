@@ -1,27 +1,27 @@
 ---
 cloud_config:
-  name_suffix: ''
-  zone: PS
-  admin_username: centos
+  name_suffix: 'hadoop'
+  zone: nova
+  admin_username: root
   ssh:
-    keyname: field
-    privatekey: ~/.ssh/field.pem
+    keyname: cfme
+    privatekey: ~/.ssh/id_rsa
 
 nodes:
   - host_group: "hdp-master"
     count: 1
-    image: CentOS 7.4
-    flavor: m3.xlarge
+    image: CentOS
+    flavor: m1.xlarge
     public_ip: false
 
   - host_group: "hdp-slave"
-    count: 2
-    image: CentOS 7.4
-    flavor: m3.large
+    count: 1
+    image: CentOS
+    flavor: m1.large
     public_ip: false
 
   - host_group: "hdp-edge"
     count: 0
-    image: CentOS 7.4
-    flavor: m3.medium
+    image: CentOS
+    flavor: m1.medium
     public_ip: false
